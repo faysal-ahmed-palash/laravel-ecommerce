@@ -14,7 +14,11 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('public/backend')}}/dist/css/adminlte.min.css">
   <link rel="stylesheet" href="{{ asset('public/backend/plugins/toastr/toastr.min.css')}}">
-<link rel="stylesheet" href="{{ asset('public/backend/plugins/sweetalert2/sweetalert2.min.css')}}">
+
+<!-- DataTables -->
+  <link rel="stylesheet" href="{{ asset('public/backend')}}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="{{ asset('public/backend')}}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="{{ asset('public/backend')}}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 </head>
 <body>
 
@@ -94,7 +98,21 @@
 <script src="{{ asset('public/backend')}}/dist/js/pages/dashboard2.js"></script>
 
 <script src="{{ asset('public/backend/plugins/toastr/toastr.min.js')}}"></script>
-<script src="{{ asset('public/backend/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
+<script src="{{ asset('public/backend/plugins/sweetalert/sweetalert.min.js') }}"></script>
+
+<!-- DataTables  & Plugins -->
+<script src="{{ asset('public/backend')}}/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="{{ asset('public/backend')}}/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="{{ asset('public/backend')}}/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="{{ asset('public/backend')}}/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="{{ asset('public/backend')}}/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="{{ asset('public/backend')}}/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="{{ asset('public/backend')}}/plugins/jszip/jszip.min.js"></script>
+<script src="{{ asset('public/backend')}}/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="{{ asset('public/backend')}}/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="{{ asset('public/backend')}}/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="{{ asset('public/backend')}}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="{{ asset('public/backend')}}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
 <script>
 $(document).on("click", "#delete",function(e){
@@ -119,7 +137,7 @@ swal({
 
 
 <script>
-  $(document).on("click", "#logout",function(e){
+  $(document).on("click", ".logout",function(e){
   e.preventDefault();
   var link=$(this).attr("href");
   swal({
@@ -161,7 +179,6 @@ case 'error': toastr.error("{{ Session::get('messege')}}"); break;
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     
-
     $('#example2').DataTable({
       "paging": true,
       "lengthChange": false,

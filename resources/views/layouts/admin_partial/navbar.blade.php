@@ -10,8 +10,8 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
       </li>
-          <li class="nav-item">
-            <a class="dropdown-item" id="logout" href="{{ route('admin.logout') }}">
+      <li class="nav-item d-none d-sm-inline-block">
+            <a class="nav-link" id="logout" href="{{ route('admin.logout') }}">
                 {{ __('Logout') }}
             </a>
       </li>
